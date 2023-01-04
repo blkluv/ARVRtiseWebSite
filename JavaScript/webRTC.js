@@ -11475,15 +11475,15 @@ var define = $__System.amdDefine;
           if (byteIndex > byteCount) {
             throw Error('Invalid byte index');
           }
-          if (byteIndex == byteCount) {
+          if (byteIndex === byteCount) {
             return false;
           }
           byte1 = byteArray[byteIndex] & 0xFF;
           byteIndex++;
-          if ((byte1 & 0x80) == 0) {
+          if ((byte1 & 0x80) === 0) {
             return byte1;
           }
-          if ((byte1 & 0xE0) == 0xC0) {
+          if ((byte1 & 0xE0) === 0xC0) {
             var byte2 = readContinuationByte();
             codePoint = ((byte1 & 0x1F) << 6) | byte2;
             if (codePoint >= 0x80) {
@@ -11700,14 +11700,14 @@ var define = $__System.amdDefine;
     };
     Emitter.prototype.off = Emitter.prototype.removeListener = Emitter.prototype.removeAllListeners = Emitter.prototype.removeEventListener = function(event, fn) {
       this._callbacks = this._callbacks || {};
-      if (0 == arguments.length) {
+      if (0 === arguments.length) {
         this._callbacks = {};
         return this;
       }
       var callbacks = this._callbacks['$' + event];
       if (!callbacks)
         return this;
-      if (1 == arguments.length) {
+      if (1 === arguments.length) {
         delete this._callbacks['$' + event];
         return this;
       }

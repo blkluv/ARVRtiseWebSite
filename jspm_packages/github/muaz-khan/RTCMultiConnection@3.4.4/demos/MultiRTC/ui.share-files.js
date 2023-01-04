@@ -37,7 +37,7 @@ rtcMultiConnection.onFileEnd = function(file) {
         return;
     }
     var div = progressHelper[file.uuid].div;
-    if (file.type.indexOf('image') != -1) {
+    if (file.type.indexOf('image') !== -1) {
         div.innerHTML = '<a href="' + file.url + '" download="' + file.name + '">Download <strong style="color:red;">' + file.name + '</strong> </a><br /><img src="' + file.url + '" title="' + file.name + '" style="max-width: 100%;">';
     } else {
         div.innerHTML = '<a href="' + file.url + '" download="' + file.name + '">Download <strong style="color:red;">' + file.name + '</strong> </a><br /><iframe src="' + file.url + '" title="' + file.name + '" style="width: 100%;border: 0;height: inherit;margin-top:1em;"></iframe>';
@@ -50,7 +50,7 @@ rtcMultiConnection.onFileEnd = function(file) {
 };
 
 function updateLabel(progress, label) {
-    if (progress.position == -1) return;
+    if (progress.position === -1) return;
     var position = +progress.position.toFixed(2).split('.')[1] || 100;
     label.innerHTML = position + '%';
 }

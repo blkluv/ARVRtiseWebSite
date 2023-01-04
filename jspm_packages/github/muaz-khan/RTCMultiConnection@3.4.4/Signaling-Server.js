@@ -94,7 +94,7 @@ module.exports = exports = function(app, socketCallback) {
         socket.userid = params.userid;
         appendUser(socket);
 
-        if (autoCloseEntireSession == 'false' && sessionid == socket.userid) {
+        if (autoCloseEntireSession === 'false' && sessionid === socket.userid) {
             socket.shiftModerationControlBeforeLeaving = true;
         }
 
@@ -183,7 +183,7 @@ module.exports = exports = function(app, socketCallback) {
             }
 
             try {
-                if (listOfUsers[socket.userid] && listOfUsers[socket.userid].socket.userid == socket.userid) {
+                if (listOfUsers[socket.userid] && listOfUsers[socket.userid].socket.userid === socket.userid) {
                     if (newUserId === socket.userid) return;
 
                     var oldUserId = socket.userid;
@@ -328,8 +328,8 @@ module.exports = exports = function(app, socketCallback) {
 
             var keepUnique = [];
             inviteTheseUsers.forEach(function(userSocket) {
-                if (userSocket.userid == socket.userid) return;
-                if (keepUnique.indexOf(userSocket.userid) != -1) {
+                if (userSocket.userid === socket.userid) return;
+                if (keepUnique.indexOf(userSocket.userid) !== -1) {
                     return;
                 }
                 keepUnique.push(userSocket.userid);
@@ -347,7 +347,7 @@ module.exports = exports = function(app, socketCallback) {
             }
 
             try {
-                if (message.remoteUserId && message.remoteUserId != 'system' && message.message.newParticipationRequest) {
+                if (message.remoteUserId && message.remoteUserId !== 'system' && message.message.newParticipationRequest) {
                     if (listOfUsers[message.remoteUserId] && listOfUsers[message.remoteUserId].password) {
                         if (numberOfPasswordTries > 3) {
                             socket.emit('password-max-tries-over', message.remoteUserId);
@@ -360,7 +360,7 @@ module.exports = exports = function(app, socketCallback) {
                             return;
                         }
 
-                        if (message.password != listOfUsers[message.remoteUserId].password) {
+                        if (message.password !== listOfUsers[message.remoteUserId].password) {
                             numberOfPasswordTries++;
                             socket.emit('invalid-password', message.remoteUserId, message.password);
                             return;
@@ -383,7 +383,7 @@ module.exports = exports = function(app, socketCallback) {
                 }
 
                 // for v3 backward compatibility; >v3.3.3 no more uses below block
-                if (message.remoteUserId == 'system') {
+                if (message.remoteUserId === 'system') {
                     if (message.message.detectPresence) {
                         if (message.message.userid === socket.userid) {
                             callback(false, socket.userid);

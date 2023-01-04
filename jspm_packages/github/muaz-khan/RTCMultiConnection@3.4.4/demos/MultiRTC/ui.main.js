@@ -53,12 +53,12 @@ function addNewMessage(args) {
 }
 
 main.querySelector('#your-name').onkeyup = function(e) {
-    if (e.keyCode != 13) return;
+    if (e.keyCode !== 13) return;
     main.querySelector('#continue').onclick();
 };
 
 main.querySelector('#room-name').onkeyup = function(e) {
-    if (e.keyCode != 13) return;
+    if (e.keyCode !== 13) return;
     main.querySelector('#continue').onclick();
 };
 
@@ -127,7 +127,7 @@ function getUserinfo(blobURL, imageURL) {
 var isShiftKeyPressed = false;
 
 getElement('.main-input-box textarea').onkeydown = function(e) {
-    if (e.keyCode == 16) {
+    if (e.keyCode === 16) {
         isShiftKeyPressed = true;
     }
 };
@@ -138,7 +138,7 @@ getElement('.main-input-box textarea').onkeyup = function(e) {
     if (numberOfKeys > 3) numberOfKeys = 0;
 
     if (!numberOfKeys) {
-        if (e.keyCode == 8) {
+        if (e.keyCode === 8) {
             return rtcMultiConnection.send({
                 stoppedTyping: true
             });
@@ -150,14 +150,14 @@ getElement('.main-input-box textarea').onkeyup = function(e) {
     }
 
     if (isShiftKeyPressed) {
-        if (e.keyCode == 16) {
+        if (e.keyCode === 16) {
             isShiftKeyPressed = false;
         }
         return;
     }
 
 
-    if (e.keyCode != 13) return;
+    if (e.keyCode !== 13) return;
 
     addNewMessage({
         header: rtcMultiConnection.extra.username,
@@ -249,7 +249,7 @@ function fireClickEvent(element) {
 
 function bytesToSize(bytes) {
     var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-    if (bytes == 0) return '0 Bytes';
+    if (bytes === 0) return '0 Bytes';
     var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
     return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
 }

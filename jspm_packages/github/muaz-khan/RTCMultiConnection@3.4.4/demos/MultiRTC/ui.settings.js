@@ -70,7 +70,7 @@ function appendDevice(device) {
     var option = document.createElement('option');
     option.value = device.id;
     option.innerHTML = device.label || device.id;
-    if (device.kind == 'audio') {
+    if (device.kind === 'audio') {
         audioDeviecs.appendChild(option);
     } else videoDeviecs.appendChild(option);
 }

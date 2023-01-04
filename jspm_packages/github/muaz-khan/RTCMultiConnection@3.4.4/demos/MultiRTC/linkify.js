@@ -75,8 +75,9 @@ window.linkify = (function(){
     }
     
     // Find links.
-    while ( arr = URI_RE.exec( txt ) ) {
-      
+    while (arr = URI_RE.exec(txt)) {
+      // code here
+    }
       link = arr[0];
       idx_last = URI_RE.lastIndex;
       idx = idx_last - link.length;
@@ -127,7 +128,7 @@ window.linkify = (function(){
       }
       
       // Push preceding non-link text onto the array.
-      if ( idx_prev != idx ) {
+      if ( idx_prev !== idx ) {
         parts.push([ txt.slice( idx_prev, idx ) ]);
         idx_prev = idx_last;
       }
