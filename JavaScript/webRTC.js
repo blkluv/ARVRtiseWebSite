@@ -15227,7 +15227,7 @@ $__System.register('2b', ['5', '6', '7', '27', '29', 'a'], function (_export) {
 						switch (name) {
 							case 'open-or-join-room':
 								this.idNames = ['txt-roomid', 'open-or-join-room', 'sender', 'receiver'];
-								var header = $('<header class="down isTop">\n\t\t\t\t\t<div id="info" class="flex">\n\t\t\t\t\t\t<div class="offline">YOU ARE OFFLINE!!!</div>\n\t\t\t\t\t\t<iframe class="gh-button" src="/img/ms-icon-21x21.png" scrolling="0" width="160px" height="30px" frameborder="0"></iframe>\n\t\t\t\t\t\t<a href="https://arvrtise.com" class="tiny" style="color:white">Create a P2P ARVRtising campaign without a middleman</a>\n\t\t\t\t\t\t<a href="' + location.href.replace(location.hash, '') + '" class="recycle">&#9851;&nbsp;<span class="tiny">New Site</span></a>\n\t\t\t\t\t</div>\n\t\t\t\t</header>');
+								var header = $('<header class="down isTop">\n\t\t\t\t\t<div id="info" class="flex">\n\t\t\t\t\t\t<div class="offline">YOU ARE OFFLINE!!!</div>\n\t\t\t\t\t\t<a>🅿️2️⃣🅿️🔗</a>\n\t\t\t\t\t\t<a href="https://arvrtise.com" class="tiny" style="color:white">Create a P2P ARVRtising campaign without a middleman</a>\n\t\t\t\t\t\t<a href="' + location.href.replace(location.hash, '') + '" class="recycle">&#9851;&nbsp;<span class="tiny">New Site</span></a>\n\t\t\t\t\t</div>\n\t\t\t\t</header>');
 								// add edit
 								header.find('#info').append('<a href="#" class="edit">&#9997;&nbsp;<span class="tiny">' + (!isSender ? 'Edit!' : 'Abort Editing!') + '</span></a>');
 								header.find('.edit').click(function (event) {
